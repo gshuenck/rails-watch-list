@@ -1,0 +1,55 @@
+<nav class="navbar  md-5 p-3 navbar-light" style="background-color: #e1eef7;">
+  <div>
+    <button class="btn btn-outline-primary">
+      <%= link_to 'Home', root_path %>
+    </button>
+  </div>
+  <div>
+    <button class="btn btn-outline-primary">
+      <%# <%= link_to 'New Movie', new_movie_path %>
+    </button>
+  </div>
+</nav>
+
+
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-12">
+        <h1>All Movies</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p>All <%= Movie.count %> Movies.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-3">
+    <div class="row">
+      <% @movies.each do |movie| %>
+        <div class="col-md-4">
+          <div class="flat-card">
+            <div class="flat-card-image" style="background-image: url('<%=movie.poster_url%>')"></div>
+            <div class="flat-card-content">
+              <div class="flat-card-title">
+                <h4 id="movie_<%= movie.id %>"><%= link_to movie.title, root_path(movie) %></h4>
+              </div>
+              <p><%= movie.overview %></p>
+              <div class="d-flex">
+                <div class="d-flex align-items-center">
+                  <i class="fa-solid fa-star"></i>
+                  <span><%= movie.rating %>  </span>
+                </div>
+              </div>
+            </div>
+            <div class="flat-card-actions">
+              <a href="/flats/<%= movie.id %>">More info</a>
+              <a class="ms-3 text-warning" href="/flats/<%= movie.id %>/edit">Edit</a>
+              <a data-turbo-method="delete" data-turbo-confirm="Are you sure?" class="ms-3 text-danger" href="/flats/<%= movie.id %>">Remove</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

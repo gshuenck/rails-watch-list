@@ -1,0 +1,16 @@
+.flat-card-content{
+ width: 400px;
+ margin: 10px;
+ margin-top: 10px;
+ p {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.flat-container {
+  margin: 50px;
+}

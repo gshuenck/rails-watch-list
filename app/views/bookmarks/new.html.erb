@@ -1,0 +1,13 @@
+
+<div class="d-flex justify-content-center">
+  <div class="new">
+    <h1>New Bookmark</h1>
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.association :movie %>
+      <%= f.input :comment %>
+      <%= f.submit %>
+    <% end %>
+    <br>
+    <%= link_to 'Back', list_path(@list) %>
+  </div>
+</div>

@@ -1,2 +1,55 @@
 // Import page-specific CSS files here.
 @import "home";
+.flat-card-image {
+  width: 400px;
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px 2px;
+  margin-top: 30px;
+  &:hover {
+    color: black;
+    border-radius: 10px;
+  }
+}
+
+.vertical-list {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.vertical-list .row {
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-left: 100px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+    &:hover {
+      color: black;
+      box-shadow: 2px 2px 2px;
+      border-radius: 10px;
+    }
+}
+
+body {
+  background-image: url('https://img.freepik.com/free-psd/3d-cinema-blank-banner-background_23-2151106376.jpg?t=st=1732285814~exp=1732289414~hmac=bb879a99417a83758cc5b471e8b20ba5c364db1ca66b64ff216f1e830144d99f&w=1060');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    font-size: 30px;
+  }
+}

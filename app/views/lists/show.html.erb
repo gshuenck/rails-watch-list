@@ -1,0 +1,77 @@
+<nav class="navbar  md-5 p-3 navbar-light" style="background-color: #f0f0f0;">
+  <div>
+    <%= image_tag "video-player.png", alt: "#", width: 50 %>
+  </div>
+  <div>
+    <button class="btn btn-outline-primary">
+      <%= link_to 'My List', root_path %>
+    </button>
+  </div>
+  <div>
+  <div>
+    <button class="btn btn-outline-primary">
+      <%= link_to 'New Bookmark', new_list_bookmark_path(@list) %>
+    </button>
+  </div>
+</nav>
+
+<div class="flat-container mt-3">
+  <h1><%= @list.name %></h1>
+  <div class="row">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="col-md-4">
+        <div class="flat-card">
+          <div class="flat-card-image" style="background-image: url('<%= bookmark.movie.poster_url %>')"></div>
+          <div class="flat-card-content">
+            <div class="flat-card-title">
+              <h4 id="movie_<%= bookmark.movie.id %>"><%=bookmark.movie.title%></h4>
+            </div>
+            <p><%= bookmark.movie.overview %></p>
+            <div class="d-flex">
+              <div class="d-flex align-items-center">
+                <% if  (bookmark&.movie&.rating == 8) %>
+                  <% 8.times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                <% elsif  (bookmark&.movie&.rating == 7) %>
+                  <% 7.times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                <% elsif  (bookmark&.movie&.rating == 6) %>
+                  <% 6.times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                <% elsif  (bookmark&.movie&.rating == 5) %>
+                  <% 5.times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                <% elsif  (bookmark&.movie&.rating == 4) %>
+                  <% 4.times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                <% elsif  (bookmark&.movie&.rating == 3) %>
+                  <% 3.times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                <% elsif  (bookmark&.movie&.rating == 2) %>
+                  <% 2.times do %>
+                    <i class="fa-solid fa-star"></i>
+                  <% end %>
+                <% else %>
+                  <i class="fa-solid fa-star"></i>
+                  <span><%= bookmark.movie.rating %></span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flat-card-actions">
+            <a href="https://www.themoviedb.org/search?query=<%= bookmark.movie.title %>" target="_blank">More info</a>
+            <%# <a class="ms-3 text-warning" href="<%= edit_movie_path(bookmark.movie) ">Edit</a> %>
+            <%= link_to 'Remove', list_bookmark_path(bookmark.list, bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'ms-3 text-danger' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
