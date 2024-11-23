@@ -1,6 +1,7 @@
 class Bookmark < ApplicationRecord
   belongs_to :movie
   belongs_to :list
+  has_many :reviews, dependent: :destroy
 
   validates :comment, length: { minimum: 6 }
   validates :movie, presence: true

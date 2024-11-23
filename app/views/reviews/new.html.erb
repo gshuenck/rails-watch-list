@@ -1,11 +1,10 @@
 
 <div class="d-flex justify-content-center">
   <div class="new">
-    <h1>New Bookmark</h1>
-    <%= simple_form_for [@list, @bookmark] do |f| %>
-      <%= f.association :movie %>
+    <h1>Add a review for <%= @bookmark.movie.title %></h1>
+    <%= simple_form_for [@list, @bookmark, @review] do |f| %>
       <%= f.input :comment %>
-      <%= f.submit %>
+      <%= f.submit class: 'btn btn-outline-primary' %>
     <% end %>
     <br>
     <%= link_to 'Back', list_path(@list), class: "btn btn-info" %>

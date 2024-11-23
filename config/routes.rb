@@ -1,8 +1,9 @@
 # config/routes.rb
 Rails.application.routes.draw do
-  resources :movies
-  resources :lists  do
-     resources :bookmarks, only: [ :new, :create, :destroy ]
-   end
+  resources :lists do
+    resources :bookmarks do
+      resources :reviews, only: [:new, :create, :show, :destroy]
+    end
+  end
   root "lists#index"
 end
